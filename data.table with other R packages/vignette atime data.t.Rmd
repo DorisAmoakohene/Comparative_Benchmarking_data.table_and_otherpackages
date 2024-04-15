@@ -419,7 +419,7 @@ ml.reshape.pred <- predict(ml.reshape.refs)
 ml.reshape <- plot(ml.reshape.pred)+
   theme(text=element_text(size=17))+
   ggtitle(sprintf("Reshaping from wide to long over %dreal numbers, N times", n.folds))+
-  scale_x_log10("N = number of Mean,SD,Length to compute")+
+  scale_x_log10("N")+
   scale_y_log10("Computation time (seconds)
 median line, min/max band
 over 10 timings")+
@@ -483,8 +483,8 @@ ml.wide.refs <- atime::references_best(ml.wide.atime)
 ml.wide.pred <- predict(ml.wide.refs)
 ml.wide <- plot(ml.wide.pred)+
   theme(text=element_text(size=20))+
-  ggtitle(sprintf("Reshaping from long to wide over %dreal numbers, N times", n.folds))+
-  scale_x_log10("N = number of Mean,SD,Length to compute")+
+  ggtitle(sprintf("Reshaping from long to wide over \n%dreal numbers,N times", n.folds))+
+  scale_x_log10("N")+
   scale_y_log10("Computation time (seconds)
 median line, min/max band
 over 10 timings")+
@@ -494,6 +494,7 @@ over 10 timings")+
 ```
 
 ```{r}
+png()
 print(ml.wide)
 ggsave("ml.wide.png", ml.wide, width = 10, height = 6, units = "in", dpi = 300)
 dev.off()
@@ -555,7 +556,7 @@ ml.create.pred <- predict(ml.create.refs)
 ml.create <- plot(ml.create.pred) +
   theme(text = element_text(size = 20)) +
   ggtitle(sprintf("Creating data frames over %d rows", n.folds)) +
-  scale_x_log10("N = number of rows") +
+  scale_x_log10("N") +
   scale_y_log10("Computation time (seconds)") +
   facet_null() +
   scale_fill_manual(values = ml.colors) +
