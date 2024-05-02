@@ -67,7 +67,7 @@ pred.write.vary.cols <- predict(refs.write.vary.cols)
 
 gg.write.dt.pd <- plot(pred.write.vary.cols)+
   theme(text=element_text(size=20))+
-  ggtitle(sprintf("Write real numbers to CSV, with pandas in Python and data.table in R, %d x N", n.rows))+
+  ggtitle(sprintf("Write real numbers to CSV, \nwith pandas in Python and data.table in R, \n%d x N", n.rows))+
   scale_x_log10("N = number of columns to write")+
   scale_y_log10("Computation time (seconds)
 median line, min/max band
@@ -146,8 +146,8 @@ pred.read.vary.cols <- predict(refs.read.vary.cols)
 
 gg.read.pd <- plot(pred.read.vary.cols)+
   theme(text=element_text(size=20))+
-  ggtitle(sprintf("Read real numbers to CSV, with pandas in Python and data.table in R, %d x N", n.rows))+
-  scale_x_log10("N = number of columns to write")+
+  ggtitle(sprintf("Read real numbers to CSV,\nwith pandas in Python and data.table in R, \n%d x N", n.rows))+
+  scale_x_log10("N = number of columns to read")+
   scale_y_log10("Computation time (seconds)
 median line, min/max band
 over 10 timings")+
@@ -231,8 +231,8 @@ ml.reshape.refs <- atime::references_best(ml.reshape.atime)
 ml.reshape.pred <- predict(ml.reshape.refs)
 ml.wide2long.pd <- plot(ml.reshape.pred)+
   theme(text=element_text(size=15))+
-  ggtitle(sprintf("Reshaping from wide to long panda & data.tableover %dreal numbers, N times", n.folds))+
-  scale_x_log10("N = number of Mean,SD,Length to compute")+
+  ggtitle(sprintf("Reshaping from wide to long \npandas & data.table \nover %dreal numbers, N times", n.folds))+
+  scale_x_log10("N")+
   scale_y_log10("Computation time (seconds)
 median line, min/max band
 over 10 timings")+
@@ -359,8 +359,8 @@ ml.long2wide.refs <- atime::references_best(ml.long2wide.atime)
 ml.long2wide.pred <- predict(ml.long2wide.refs)
 ml.long2wide <- plot(ml.long2wide.pred)+
   theme(text=element_text(size=20))+
-  ggtitle(sprintf("Reshaping from long to wide over %dreal numbers, N times", n.folds))+
-  scale_x_log10("N = number of Mean,SD,Length to compute")+
+  ggtitle(sprintf("Reshaping from long to wide over %dreal numbers, \nN times", n.folds))+
+  scale_x_log10("N")+
   scale_y_log10("Computation time (seconds)
 median line, min/max band
 over 10 timings")+
